@@ -1,5 +1,6 @@
 import React from "react"
-import {MDBTableBody, MDBIcon } from "mdbreact";
+import {MDBTableBody, MDBIcon} from "mdbreact";
+import {withRouter} from "react-router-dom"
 
 
 
@@ -12,7 +13,9 @@ const TableBody = props => {
       <MDBTableBody>
           {!isSortDown ? (
               <>
-        {players.map((value, index) => (
+        {players.sort(function(a,b) {
+            return b[theadValue] - a[theadValue]
+        }).map((value, index) => (
         <tr key={index}>
           <td>{value.name}</td>
           <td>{value.team_acronym}</td>
@@ -35,7 +38,13 @@ const TableBody = props => {
           <td className="text-right">{value.blocks_per_game}</td>
           <td className="text-right">{value.turnovers_per_game}</td>
           <td className="text-right">{value.player_efficiency_rating}</td>
-          <td className="text-center"><MDBIcon icon="search" /></td>
+          <td className="text-center">
+            <MDBIcon className="sort-down-hover" 
+              onClick={()=> {
+                
+                props.history.push(`/detail/${value.name}`)
+              }} icon="search" />
+          </td>
         </tr> 
             ))}  
         </>) : (<>
@@ -64,7 +73,9 @@ const TableBody = props => {
           <td className="text-right">{value.blocks_per_game}</td>
           <td className="text-right">{value.turnovers_per_game}</td>
           <td className="text-right">{value.player_efficiency_rating}</td>
-          <td className="text-center"><MDBIcon icon="search" /></td>
+          <td className="text-center">
+            <MDBIcon className="sort-down-hover" onClick={()=> props.history.push(`/detail/${value.name}`)} icon="search" />
+          </td>
         </tr> 
         ))}
         </>
@@ -74,4 +85,4 @@ const TableBody = props => {
     )
 }
 
-export default TableBody
+export default withRouter(TableBody)

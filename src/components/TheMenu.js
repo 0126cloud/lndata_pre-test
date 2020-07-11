@@ -9,7 +9,7 @@ const TheMenu = props => {
     return(
         <>
         <MDBNavbar color="default-color" dark expand="md">
-            <MDBNavLink as={NavLink} to="/" className="white-text pt-0 pb-0">
+            <MDBNavLink style={{cursor: "pointer"}} as={NavLink} to="/" className="white-text pt-0 pb-0">
                 Player Lists
             </MDBNavLink>
         </MDBNavbar>

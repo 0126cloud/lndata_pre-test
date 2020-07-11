@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { MDBTable, MDBTableHead, MDBIcon } from "mdbreact";
 import TableBody from "./TableBody";
 
@@ -6,10 +6,7 @@ import TableBody from "./TableBody";
 
 const MainTable = props => {
 
-    const { players, handleSortDown, theadValue, setTheadValue } = props
-
-    const [isSortDown, setIsSortDown] = useState(false)
-    const [isTheadDown, setIsTheadDown] = useState([false,false,false,false,false,false])
+    const { players, theadValue, setTheadValue, isSortDown, setIsSortDown } = props
 
 
     return(
@@ -25,10 +22,9 @@ const MainTable = props => {
                 let value = event.target.getAttribute("value")        
                 setTheadValue(value)
                 setIsSortDown(!isSortDown)
-                setIsTheadDown([!false,false,false,false,false,false])
                }}>
               <div value="games_played" className="d-flex align-items-center">
-                  Games {isTheadDown[0] ? <MDBIcon icon="sort-up" className="ml-2" /> : <MDBIcon icon="sort-down" className="ml-2" />}
+                  Games <MDBIcon icon="sort" className="ml-2" />
               </div>
           </th>
           <th>MPG</th>
@@ -42,11 +38,10 @@ const MainTable = props => {
           <th className="sort-down-hover" onClick={(event) => {
                 let value = event.target.getAttribute("value")        
                 setTheadValue(value)
-                setIsSortDown(true)
-                console.log(isTheadDown)
+                setIsSortDown(!isSortDown)
                }}>
               <div value="points_per_game" className="d-flex align-items-center">
-                  Points {isTheadDown[1] ? <MDBIcon icon="sort-up" className="ml-2" /> : <MDBIcon icon="sort-down" className="ml-2" />}
+                  Points <MDBIcon icon="sort" className="ml-2" />
               </div>
           </th>
           <th>ORebounds</th>
@@ -54,37 +49,37 @@ const MainTable = props => {
           <th className="sort-down-hover" onClick={(event) => {
                 let value = event.target.getAttribute("value")        
                 setTheadValue(value)
-                setIsSortDown(true)
+                setIsSortDown(!isSortDown)
                }}>
               <div value="rebounds_per_game" className="d-flex align-items-center">
-                  Rebounds {isTheadDown[2] ? <MDBIcon icon="sort-up" className="ml-2" /> : <MDBIcon icon="sort-down" className="ml-2" />}
+                  Rebounds <MDBIcon icon="sort" className="ml-2" />
               </div>
           </th>
           <th className="sort-down-hover" onClick={(event) => {
                 let value = event.target.getAttribute("value")        
                 setTheadValue(value)
-                setIsSortDown(true)
+                setIsSortDown(!isSortDown)
                }}>
               <div value="assists_per_game" className="d-flex align-items-center">
-                  Assists {isTheadDown[3] ? <MDBIcon icon="sort-up" className="ml-2" /> : <MDBIcon icon="sort-down" className="ml-2" />}
+                  Assists <MDBIcon icon="sort" className="ml-2" />
               </div>
           </th>
           <th className="sort-down-hover" onClick={(event) => {
                 let value = event.target.getAttribute("value")        
                 setTheadValue(value)
-                setIsSortDown(true)
+                setIsSortDown(!isSortDown)
                }}>
               <div value="steals_per_game" className="d-flex align-items-center">
-                  Steals {isTheadDown[4] ? <MDBIcon icon="sort-up" className="ml-2" /> : <MDBIcon icon="sort-down" className="ml-2" />}
+                  Steals <MDBIcon icon="sort" className="ml-2" />
               </div>
           </th>
           <th className="sort-down-hover" onClick={(event) => {
                 let value = event.target.getAttribute("value")        
                 setTheadValue(value)
-                setIsSortDown(true)
+                setIsSortDown(!isSortDown)
                }}>
               <div value="blocks_per_game" className="d-flex align-items-center">
-                  Blocks {isTheadDown[5] ? <MDBIcon icon="sort-up" className="ml-2" /> : <MDBIcon icon="sort-down" className="ml-2" />}
+                  Blocks <MDBIcon icon="sort" className="ml-2" />
               </div>
           </th>
           <th>Turnovers</th>
