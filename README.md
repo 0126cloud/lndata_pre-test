@@ -54,5 +54,5 @@ UPDATE `Staff` SET `Salary` = (`Salary` * 1.1) WHERE 1
 
 3. install完成後，一個執行npm run db，一個執行npm start
 
-<img width="964" alt="LnData_pre-test website photo" src="https://github.com/0126cloud/LnData_pre-test/blob/master/task2.png">
+<img width="964" alt="LnData_pre-test website photo" src="https://github.com/0126cloud/lndata_pre-test/blob/master/task2.png">
 
