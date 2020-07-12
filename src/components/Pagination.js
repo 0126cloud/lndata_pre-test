@@ -4,10 +4,10 @@ import { MDBPagination, MDBPageItem, MDBPageNav } from "mdbreact";
 
 const Pagination = props => {
 
-    const {pagination, currentPage, setCurrentPage, handlePageClick, handleSearchPage, isSearch, searchKey, searchTeam} = props
+    const {pagination, currentPage, setCurrentPage, 
+        handlePageClick, handleSearchPage, isSearch, searchKey,
+        searchTeam, startSlice, setStartSlice, endSlice, setEndSlice} = props
 
-    const [startSlice, setStartSlice] = useState(0)
-    const [endSlice, setEndSlice] = useState(5)
 
     return(
         <>
@@ -27,10 +27,10 @@ const Pagination = props => {
           </MDBPageNav>
         </MDBPageItem>
         {pagination.slice(startSlice, endSlice).map((page,index) => (
-            <MDBPageItem key={index} active={currentPage === page ? true : false}             
+            <MDBPageItem key={index} active={currentPage === page ? true : false} 
+                onMouseDown={()=> setCurrentPage(page)}            
                 onClick={() => {
-                    setCurrentPage(page)
-                    if(page === endSlice && endSlice < pagination.length - 5) {
+                    if(page === endSlice && endSlice < pagination.length - 3) {
                         setStartSlice(page - 1)
                         setEndSlice(page + 4)
                     }else if(page - 1 === startSlice && startSlice > 3) {

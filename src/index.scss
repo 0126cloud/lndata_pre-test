@@ -29,9 +29,6 @@ code {
 .mainTable-box {
   overflow-x: scroll;
 
-  &::-webkit-scrollbar {
-      display: none;
-  }
 }
 
 .sort-down-hover {

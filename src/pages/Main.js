@@ -21,6 +21,10 @@ const Main = props => {
 
     const [show, setShow] = useState(false)
 
+    const [startSlice, setStartSlice] = useState(0)
+    const [endSlice, setEndSlice] = useState(5)
+
+
 
 
     const setPageNav = (totalPages) => {
@@ -134,6 +138,12 @@ const Main = props => {
       }
 
       const handleSearch = async (searchKey, searchTeam) => {
+        const page = 1
+        const start = 0
+        const end = 5
+        setStartSlice(start)
+        setEndSlice(end)
+        setCurrentPage(page)
         await getSearchData(searchKey, searchTeam, 1)
         await setIsSearch(true)
       }
@@ -152,7 +162,8 @@ const Main = props => {
             setSearchKey={setSearchKey}
             handleSearch={handleSearch}
             setSearchTeam={setSearchTeam}
-            searchTeam={searchTeam} />
+            searchTeam={searchTeam}
+            setCurrentPage={setCurrentPage} />
         <MDBRow className="d-flex justify-content-end pr-2">
             <MDBBtn className="px-3 py-2 mt-4 mb-5" color="dark" onClick={()=> setShow(true)}>Show Charts</MDBBtn>
         </MDBRow>
@@ -172,6 +183,10 @@ const Main = props => {
             pagination={pagination}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
+            startSlice={startSlice}
+            endSlice={endSlice}
+            setStartSlice={setStartSlice}
+            setEndSlice={setEndSlice}
             handlePageClick={handlePageClick}
             isSearch={isSearch}
             searchKey={searchKey}

@@ -11,7 +11,8 @@ const TheHeader = props => {
             <MDBNavbar dark expand="md">
             <MDBNavbarBrand className="">
                 <MDBNavLink as={NavLink} to="/" className="p-0">
-                    <img src="https://www.lndata.com/images/logo/logo_160.png" alt="LOGO" height="30px" />
+                    <h3 style={{color: "#2bbbad", fontWeight: "600"}}>LOGO</h3>
+                    {/* <img src="https://www.lndata.com/images/logo/logo_160.png" alt="LOGO" height="30px" /> */}
                 </MDBNavLink>
             </MDBNavbarBrand>
                 <MDBNavbarNav right>
